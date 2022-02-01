@@ -36,6 +36,10 @@
             border-style: solid;
             padding: 4px;
         }
+
+        .red {
+            color: red;
+        }
     </style>
 </head>
 
@@ -43,6 +47,7 @@
 <body>
     <h1 id="main-header">Accessing Elements in the DOM</h1>
 
+    <h2>Buttons</h2>
     <input type="button" onclick="setHeaderToSelected()" value="Toogle h1 to selected" />
 
     <button onclick="setAllH2ToSelected()">Toogle all h2 to selected</button>
@@ -119,13 +124,42 @@
                 h2Node.classList.toggle("selected")
             }
 
-            // ANOTHER WAY TO WRITE THIS FOR LOOP
-            // for (let i = 0; i < allH2Nodes.length; i++) {
-            //     let h2Node = allH2Nodes[i]
-            //     // Do something with h2Node
-            // }
-        }
+            /*
+            ANOTHER WAY TO WRITE THIS FOR LOOP
+            for (let i = 0; i < allH2Nodes.length; i++) {
+                let h2Node = allH2Nodes[i]
+                // Do something with h2Node
+            }
+            */
 
+            /*
+            We could also add it one by one like below.
+            But...
+            What happens if we add another h2?
+            We need to add one more line.
+            The for takes care of this automatically, it doesn't need to know
+            in advance how many h2 tags there are
+            allH2Nodes[0].classList.toggle("selected")
+            allH2Nodes[1].classList.toggle("selected")
+            allH2Nodes[2].classList.toggle("selected")
+            allH2Nodes[3].classList.toggle("selected")
+            allH2Nodes[4].classList.toggle("selected")
+            allH2Nodes[5].classList.toggle("selected")
+            */
+
+            /* EXAMPLE OF ADDING A DIFFERENT CLASS TO EVEN/ODD TAGS
+            for (let i = 0; i < allH2Nodes.length; i++) {
+                let h2Node = allH2Nodes[i]
+                // Do something with h2Node
+                if (i % 2 === 0) {// If the index is even
+                    h2Node.classList.toggle("selected")
+                } else {
+                    h2Node.classList.toggle("red")
+                }
+            }
+            */
+
+        }
 
     </script>
 </body>
