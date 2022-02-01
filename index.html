@@ -41,7 +41,7 @@
 
 
 <body>
-    <h1>Accessing Elements in the DOM</h1>
+    <h1 id="main-header">Accessing Elements in the DOM</h1>
 
     <div>
         <h2 id="demo-id">ID (#demo-id)</h2>
@@ -86,6 +86,23 @@
             <li>Third element inside a list</li>
         </ul>
     </div>
+
+    <script type="text/javascript">
+        // We want to add the class "selected" to the main page header (i.e., the only h1)
+
+        // 1) Let's select the corresponding node
+        // - Since we can edit the HTML, we added an id to the tag we want to select
+        // - We know it's a single, specific, tag: so we use an id
+        // - And then we select the element by id:
+        let headerNode = document.getElementById("main-header")
+
+
+        // 2) Let's manipulate it to add the desired class
+        // - We are just manipulating a JS object --> we access the classList property
+        // - We call a method from classList, to add a className
+        headerNode.classList.add("selected")
+
+    </script>
 </body>
 
 </html>
