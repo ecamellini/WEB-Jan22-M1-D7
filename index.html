@@ -44,6 +44,9 @@
     <h1 id="main-header">Accessing Elements in the DOM</h1>
 
     <input type="button" onclick="setHeaderToSelected()" value="Set h1 to selected" />
+
+    <button onclick="setAllH2ToSelected()">Set all h2 to selected</button>
+
     <div>
         <h2 id="demo-id">ID (#demo-id)</h2>
         <div>Access me by ID</div>
@@ -104,6 +107,25 @@
             // - We call a method from classList, to add a className
             headerNode.classList.toggle("selected")
         }
+
+        // We want to add the class "selected" to all the h2 tags
+        const setAllH2ToSelected = function () {
+            // 1) We look for all the h2 tags
+            let allH2Nodes = document.getElementsByTagName('h2')
+
+            // 2) We add the selected class to each one of them
+            for (h2Node of allH2Nodes) {
+                // Do something with h2Node
+                h2Node.classList.toggle("selected")
+            }
+
+            // ANOTHER WAY TO WRITE THIS FOR LOOP
+            // for (let i = 0; i < allH2Nodes.length; i++) {
+            //     let h2Node = allH2Nodes[i]
+            //     // Do something with h2Node
+            // }
+        }
+
 
     </script>
 </body>
