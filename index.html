@@ -52,6 +52,7 @@
 
     <button onclick="setAllH2ToSelected()">Toogle all h2 to selected</button>
 
+    <button onclick="createNewElement()">Create new element</button>
     <div>
         <h2 id="demo-id">ID (#demo-id)</h2>
         <div>Access me by ID</div>
@@ -159,6 +160,24 @@
             }
             */
 
+        }
+
+
+        const createNewElement = function () {
+            // 1) We create the new tag
+            // - But it's not added anywhere in the DOM
+            // - It's just referenced by our newDiv variable
+            let newDiv = document.createElement('div')
+
+            // 2) We customize it
+            newDiv.innerText = "I am a new div, hello"
+            newDiv.style.color = "coral"
+
+            // 3) We attach it somewhere, adding it as a child of another tag
+            // - First, let's select the tag to manipulate -- the tag where we want to add a child
+            let demoIdDiv = document.getElementById('demo-id')
+            // - Then, we append the new child to it, as last element
+            demoIdDiv.appendChild(newDiv)
         }
 
     </script>
