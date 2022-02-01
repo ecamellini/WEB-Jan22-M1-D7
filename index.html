@@ -180,7 +180,9 @@
             demoIdDiv.appendChild(newDiv)
 
             let createButton = document.getElementById('create-button')
-            createButton.remove()
+            // createButton.remove() // This removes it completely from the DOM
+            createButton.hidden = true // This just hides it but you can still see it in the developer tools
+            // Another way to hide it: use the "display: none" CSS property
         }
 
     </script>
