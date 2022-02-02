@@ -56,7 +56,7 @@
     <br />
     <label for="username-input">Username:</label>
     <input id="username-input" type="text" placeholder="Enter your username..." onkeyup="updateHeaderColor(event)" />
-    <button id="create-button" onclick="createNewElement()">Create new element</button>
+    <button id="create-button" onclick="createNewElement(event)">Create new element</button>
 
     <br />
     <br />
@@ -71,8 +71,9 @@
 
 
     <div>
-        <h2>Class (.demo-class)</h2>
-        <div class="demo-class">Access me by class (1)</div>
+        <h2 onmouseover="changeTextColor(event)" onmouseleave="backToColorBlack(event)">Class (.demo-class)</h2>
+        <div onmouseover="changeTextColor(event)" onmouseleave="backToColorBlack(event)" class="demo-class">Access me by
+            class (1)</div>
         <div class="demo-class">Access me by class (2)</div>
     </div>
 
@@ -172,7 +173,7 @@
         }
 
 
-        const createNewElement = function () {
+        const createNewElement = function (event) {
             // 1) We create the new tag
             // - But it's not added anywhere in the DOM
             // - It's just referenced by our newDiv variable
@@ -197,7 +198,7 @@
             // This is if you want to add it right after the h2 tag, not after the div
             // parentDiv.insertBefore(newDiv, parentDiv.children[1])
 
-            let createButton = document.getElementById('create-button')
+            let createButton = event.target
             // createButton.remove() // This removes it completely from the DOM
             createButton.hidden = true // This just hides it but you can still see it in the developer tools
             // Another way to hide it: use the "display: none" CSS property
@@ -229,6 +230,23 @@
                 case "Escape": demoIdTag.style.color = "black"; break;
             }
         }
+
+        const changeTextColor = function (event) {
+            // 1) Get the h2 for which we want to change color
+            let hoveredTag = event.target
+
+            // 2) We change the color
+            hoveredTag.style.color = "orange"
+        }
+
+        const backToColorBlack = function () {
+            // 1) Get the h2 for which we want to change color
+            let hoveredTag = event.target
+
+            // 2) We change the color
+            hoveredTag.style.color = "black"
+        }
+
     </script>
 </body>
 
