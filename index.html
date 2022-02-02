@@ -58,6 +58,12 @@
     <input id="username-input" type="text" placeholder="Enter your username..." />
     <button id="create-button" onclick="createNewElement()">Create new element</button>
 
+    <br />
+    <br />
+    <label for="title-input">Add something to the title:</label>
+    <input id="title-input" type="text" placeholder="Enter text here..." />
+    <button onclick="addTitleInputToTitleText()">Add</button>
+
     <div id="demo-id-container">
         <h2 id="demo-id">ID (#demo-id)</h2>
         <div>Access me by ID</div>
@@ -195,6 +201,17 @@
             // createButton.remove() // This removes it completely from the DOM
             createButton.hidden = true // This just hides it but you can still see it in the developer tools
             // Another way to hide it: use the "display: none" CSS property
+        }
+
+        const addTitleInputToTitleText = function () {
+            // 1) We get the title
+            let demoIdTag = document.getElementById("demo-id")
+
+            // 2) We get the input value
+            let inputValue = document.getElementById("title-input").value
+
+            // 3) We add the input value to the title
+            demoIdTag.innerText += inputValue
         }
 
     </script>
