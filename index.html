@@ -52,6 +52,10 @@
 
     <button onclick="setAllH2ToSelected()">Toogle all h2 to selected</button>
 
+    <br />
+    <br />
+    <label for="username-input">Username:</label>
+    <input id="username-input" type="text" placeholder="Enter your username..." />
     <button id="create-button" onclick="createNewElement()">Create new element</button>
 
     <div id="demo-id-container">
@@ -169,7 +173,9 @@
             let newDiv = document.createElement('div')
 
             // 2) We customize it
-            newDiv.innerText = "I am a new div, hello"
+            let inputTag = document.getElementById("username-input")
+            let username = inputTag.value
+            newDiv.innerText = `Hello I am ${username}`
             newDiv.style.color = "coral"
 
             // 3) We attach it somewhere, adding it as a child of another tag
