@@ -249,7 +249,20 @@
         }
 
         // This is executed just after rendering the HTML
-        window.onload = alertHi()
+        window.onload = function () {
+            // Everything that should be executed as soon as the page is loaded
+            //  and ready should belong to this function
+            alertHi()
+
+            // Everything we execute before (i.e., outside window.onload)
+            // is executed when the <script> tag is encountered.
+            // This means that if you reference a tag that has not
+            // yet been rendered, because it's after the script tag, you will not find it.
+
+            // FOR EXAMPLE: try to move this entire script block at the beginning
+            // of the body and execute setHeaderToSelected() right away, just after
+            // defining it, and see what happens.
+        }
 
     </script>
 </body>
