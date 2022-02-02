@@ -71,8 +71,12 @@
 
 
     <div>
-        <h2 onmouseover="changeTextColor(event)" onmouseleave="backToColorBlack(event)">Class (.demo-class)</h2>
-        <div onmouseover="changeTextColor(event)" onmouseleave="backToColorBlack(event)" class="demo-class">Access me by
+        <h2 onmouseover="changeTextColor(event, 'orange')" onmouseleave="changeTextColor(event, 'black')">Class
+            (.demo-class)
+        </h2>
+        <div onmouseover="changeTextColor(event, 'orange')" onmouseleave="changeTextColor(event, 'black')"
+            class="demo-class">
+            Access me by
             class (1)</div>
         <div class="demo-class">Access me by class (2)</div>
     </div>
@@ -231,20 +235,12 @@
             }
         }
 
-        const changeTextColor = function (event) {
-            // 1) Get the h2 for which we want to change color
+        const changeTextColor = function (event, color) {
+            // 1) Get the tag for which we want to change color
             let hoveredTag = event.target
 
             // 2) We change the color
-            hoveredTag.style.color = "orange"
-        }
-
-        const backToColorBlack = function () {
-            // 1) Get the h2 for which we want to change color
-            let hoveredTag = event.target
-
-            // 2) We change the color
-            hoveredTag.style.color = "black"
+            hoveredTag.style.color = color
         }
 
     </script>
