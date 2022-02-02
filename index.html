@@ -188,6 +188,11 @@
             let username = inputTag.value
             newDiv.innerText = `Hello I am ${username}`
             newDiv.style.color = "coral"
+            newDiv.onclick = setToBold // To add a listener. BEWARE: NO ROUND BRACKETS HERE
+            // IF YOU CALL THE FUNCTION (i.e., setToBold()) YOU ARE SETTING ITS RETURN VALUE AS LISTENER
+            // AND NOT THE FUNCTION ITSELF
+            // Another way to do it:
+            // newDiv.addEventListener("click", setToBold) // In this way you can add more listeners for the same event, just call it again
 
             // 3) We attach it somewhere, adding it as a child of another tag
             // - First, let's select the tag to manipulate -- the tag where we want to add a child
@@ -264,6 +269,9 @@
             // defining it, and see what happens.
         }
 
+        const setToBold = function (event) {
+            event.target.style.fontWeight = 'bold'
+        }
     </script>
 </body>
 
