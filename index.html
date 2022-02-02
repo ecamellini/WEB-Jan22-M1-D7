@@ -53,7 +53,8 @@
     <button onclick="setAllH2ToSelected()">Toogle all h2 to selected</button>
 
     <button id="create-button" onclick="createNewElement()">Create new element</button>
-    <div>
+
+    <div id="demo-id-container">
         <h2 id="demo-id">ID (#demo-id)</h2>
         <div>Access me by ID</div>
     </div>
@@ -105,7 +106,7 @@
             // - Since we can edit the HTML, we added an id to the tag we want to select
             // - We know it's a single, specific, tag: so we use an id
             // - And then we select the element by id:
-            let headerNode = document.getElementById("main-header")
+            let headerNode = document.querySelector("#demo-id")
 
 
             // 2) Let's manipulate it to add the desired class
@@ -125,13 +126,12 @@
                 h2Node.classList.toggle("selected")
             }
 
-            /*
-            ANOTHER WAY TO WRITE THIS FOR LOOP
-            for (let i = 0; i < allH2Nodes.length; i++) {
-                let h2Node = allH2Nodes[i]
-                // Do something with h2Node
-            }
-            */
+
+            // for (let i = 0; i < allH2Nodes.length; i++) {
+            //     let h2Node = allH2Nodes[i]
+            //     // Do something with h2Node
+            // }
+
 
             /*
             We could also add it one by one like below.
@@ -146,7 +146,6 @@
             allH2Nodes[3].classList.toggle("selected")
             allH2Nodes[4].classList.toggle("selected")
             allH2Nodes[5].classList.toggle("selected")
-            */
 
             /* EXAMPLE OF ADDING A DIFFERENT CLASS TO EVEN/ODD TAGS
             for (let i = 0; i < allH2Nodes.length; i++) {
@@ -175,9 +174,16 @@
 
             // 3) We attach it somewhere, adding it as a child of another tag
             // - First, let's select the tag to manipulate -- the tag where we want to add a child
-            let demoIdDiv = document.getElementById('demo-id')
-            // - Then, we append the new child to it, as last element
-            demoIdDiv.appendChild(newDiv)
+            let demoIdTag = document.getElementById('demo-id')
+            // // - Then, we append the new child to its parent, as last element
+            let parentDiv = demoIdTag.parentElement
+            parentDiv.appendChild(newDiv)
+
+            // A way to do it in one line
+            // document.getElementById("demo-id-container").appendChild(newDiv)
+
+            // This is if you want to add it right after the h2 tag, not after the div
+            // parentDiv.insertBefore(newDiv, parentDiv.children[1])
 
             let createButton = document.getElementById('create-button')
             // createButton.remove() // This removes it completely from the DOM
